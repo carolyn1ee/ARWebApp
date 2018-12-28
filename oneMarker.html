@@ -2,6 +2,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<!-- three.js library -->
+	<script src="three/build/three.js"></script>
 	<script src="AR-Toolkit.js/three.js/build/three.js"></script>
 	<!-- jsartookit -->
 	<script src="AR-Toolkit.js/vendor/jsartoolkit5/build/artoolkit.min.js"></script>
@@ -48,7 +49,7 @@
 			scene.add(camera);
 			renderer = new THREE.WebGLRenderer( {antialias : true, alpha: true} );
 			renderer.setClearColor(new THREE.Color("lightgrey"), 0)
-			renderer.setSize( 640, 480 );
+			renderer.setSize( window.innerwidth, window.innerheight );
 			renderer.domElement.style.position = "absolute"
 			renderer.domElement.style.top = "0px"
 			renderer.domElement.style.left = "0px"
@@ -85,16 +86,15 @@
 			window.addEventListener("touchstart", onTouchStart);
 			window.addEventListener("mousemove", onMouseMove);
 			window.addEventListener("touchmove", onTouchMove);
-			window.addEventListener("orientationchange", checkOrientation);			
+			window.addEventListener("orientationchange", checkOrientation);
+			checkOrientation();			
 
 		}
 
 		function checkOrientation () {
 			// setTimeout(function(){
 				document.getElementById("orie").innerHTML = window.innerWidth + "\n"+ window.innerHeight;
-				renderer.setSize( window.innerWidth, window.innerHeight ); 
-				camera.aspect = window.innerWidth/window.innerHeight;
-				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
 			// }, 500 );
 		}
 		updateFuncs.push(function updateScanner(){
