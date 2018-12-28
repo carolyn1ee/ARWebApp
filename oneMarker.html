@@ -90,12 +90,13 @@
 		}
 
 		function checkOrientation () {
-			setTimeout(function(){
-				document.getElementById("orie").innerHTML = window.innerWidth + "\n"+ window.innerHeight;
+			// setTimeout(function(){
+				
 				renderer.setSize( window.innerWidth, window.innerHeight ); 
 				camera.aspect = window.innerWidth/window.innerHeight;
 				camera.updateProjectionMatrix();
-			}, 500 );
+				document.getElementById("orie").innerHTML = window.innerWidth + "\n"+ window.innerHeight;
+			// }, 500 );
 		}
 		updateFuncs.push(function updateScanner(){
 			var movingDiv = document.getElementById("movingDiv");
