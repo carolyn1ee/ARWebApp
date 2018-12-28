@@ -22,6 +22,7 @@
 	<div style="position: fixed; top: 10px; width:100%; text-align: center; z-index: 1; color: #333; line-height: 30px;">
 		<p id="text">[inputs]</p>
 		<p id="mark">[marker1 position]</p>
+		<p id ="orie"> orientation </p>
 	</div>
 
 	<div id="movingDiv" style="position: absolute; z-index: 1; display: none; width: 200px; height: 100px; text-align: center; background-color: lightblue; line-height: 30px;">
@@ -89,6 +90,7 @@
 		}
 
 		function checkOrientation () {
+			document.getElementById("orie").innerHTML = window.innerWidth + \n + window.innerHeight;
 			renderer.setSize( window.innerWidth, window.innerHeight ); 
 			camera.aspect = window.innerWidth/window.innerHeight;
 			camera.updateProjectionMatrix();
