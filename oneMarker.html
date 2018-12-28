@@ -90,7 +90,7 @@
 		}
 
 		function checkOrientation () {
-			document.getElementById("orie").innerHTML = window.innerWidth + \n + window.innerHeight;
+			document.getElementById("orie").innerHTML = window.innerWidth + "\n"+ window.innerHeight;
 			renderer.setSize( window.innerWidth, window.innerHeight ); 
 			camera.aspect = window.innerWidth/window.innerHeight;
 			camera.updateProjectionMatrix();
